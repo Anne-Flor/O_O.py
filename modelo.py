@@ -21,23 +21,22 @@ class Programa():
 
 class Filme(Programa):
     def __init__(self, titulo, ano, duracao):
-        self._titulo  = titulo.title() # 2 undescore para privar o atributo  
-        self.ano       = ano
+        super().__init__(titulo, ano) #chamando o inicializador da classe mãe, o meu objeto recebe a instacia que foi criada pela classe mãe
         self.duracao   = duracao
-        self._likes   = 0 
 
 class Series(Programa):
     def __init__(self, titulo, ano, temporadas):
-        self._titulo     = titulo.title()
-        self.ano          = ano 
+        super().__init__(titulo, ano)
         self.temporadas   = temporadas 
-        self._likes      = 0
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
-vingadores.dar_like()
-print(f"Nome {vingadores.titulo} - Ano {vingadores.ano} - Duração {vingadores.duracao} - Likes {vingadores.likes}")
-
-
 atlanta = Series('atlanta', 2018, 2)
+vingadores.dar_like()
+vingadores.dar_like()
+vingadores.dar_like()
+
 atlanta.dar_like()
-print(f'Nome {atlanta.titulo} - Ano {atlanta.ano} - Temporadas {atlanta.temporadas} - likes {atlanta.likes}')
+atlanta.dar_like()
+
+print(f" Nome {vingadores.titulo} - {vingadores.ano} - {vingadores.duracao} - Likes {vingadores.likes}")
+print(f' Nome {atlanta.titulo} - {atlanta.ano} - {atlanta.temporadas} - Likes {atlanta.likes}')
